@@ -13,6 +13,9 @@ public enum RoleDto {;
         public static class Role implements RequestDTO {
             String id;
             String name;
+            public Role(String name) {
+                this.name = name;
+            }
         }
     }
     public enum Response {;

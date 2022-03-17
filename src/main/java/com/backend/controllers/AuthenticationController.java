@@ -2,7 +2,9 @@ package com.backend.controllers;
 
 
 import com.backend.dto.impl.AuthDto;
+import com.backend.dto.impl.RoleDto;
 import com.backend.dto.impl.UserDto;
+import com.backend.invariants.RoleEnum;
 import com.backend.mapper.UserHeavyMapper;
 import com.backend.model.UserEntity;
 import com.backend.security.jwt.JwtTokenProvider;
@@ -73,6 +75,7 @@ public class AuthenticationController {
     )
     @PostMapping("signUp")
     public UserDto.Response.UserHeavy signUP(@RequestBody UserDto.Request.CreateUser newUser) {
-        return userHeavyMapper.toDto(userService.create(userHeavyMapper.toEntity(newUser)));
+        UserEntity user = userService.create(userHeavyMapper.toEntity(newUser));
+        return userHeavyMapper.toDto(userService.addRoleForUser(user.getId(), RoleEnum.ROLE_USER.getRole()));
     }
 }
