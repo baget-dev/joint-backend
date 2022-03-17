@@ -16,7 +16,7 @@ import java.util.Collections;
 @Configuration
 public class SwaggerConfiguration {
 
-    // Каким типы авторизации поддерживает сервис(Вам пока можно без него)
+    // Каким типы авторизации поддерживает сервис
     private SecurityScheme jwtScheme() {
         return HttpAuthenticationScheme.JWT_BEARER_BUILDER
                 .name("JWT")
