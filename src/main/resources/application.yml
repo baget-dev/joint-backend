@@ -3,11 +3,11 @@ server:
   error:
     whitelabel:
       enabled: true
-  baseUrl: "http://localhost:8080/"
+# baseUrl: "http://localhost:8080/"
   adminEndPoint: "api/admin"
   userEndPoint: "api/user"
   swaggerEndPoint: "swagger-ui/#/"
-  #baseUrl: "https://joint-backend-dev.herokuapp.com/"
+  baseUrl: "https://joint-backend-dev.herokuapp.com/"
 
 spring:
   datasource:
