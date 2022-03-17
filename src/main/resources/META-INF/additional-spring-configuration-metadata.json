@@ -1,0 +1,33 @@
+{
+  "properties": [
+    {
+      "name": "server.swaggerEndPoint",
+      "type": "java.lang.String",
+      "description": "Description for server.swaggerEndPoint."
+    },
+    {
+      "name": "server.userEndPoint",
+      "type": "java.lang.String",
+      "description": "Description for server.userEndPoint."
+    },
+    {
+      "name": "server.adminEndPoint",
+      "type": "java.lang.String",
+      "description": "Description for server.adminEndPoint."
+    },
+    {
+      "name": "server.baseUrl",
+      "type": "java.lang.String",
+      "description": "Description for server.baseUrl."
+    },
+    {
+      "name": "jwt.token.secret",
+      "type": "java.lang.String",
+      "description": "Description for jwt.token.secret."
+    },
+    {
+      "name": "jwt.token.expired",
+      "type": "java.lang.String",
+      "description": "Description for jwt.token.expired."
+    }
+  ] }
