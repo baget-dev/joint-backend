@@ -10,7 +10,7 @@ import springfox.documentation.spring.web.paths.Paths;
 @Component
 public class CustomPathProvider extends DefaultPathProvider implements PathProvider {
 
-    @Value("${api.path:/}")
+    @Value("${server.baseUrl:/}")
     private String path;
 
     @Override
