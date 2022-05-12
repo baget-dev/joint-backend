@@ -8,6 +8,7 @@ import com.backend.repository.LongKeyRepository;
 import com.backend.services.BaseService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.MappedSuperclass;
@@ -65,12 +66,15 @@ public abstract class BaseController<E extends BaseEntity,
     }
 
     @Operation(
-            summary = "Вернуть всё (с пагинацией)",
+            summary = "Вернуть всё (с пагинацией) \n" +
+                    "+ кол-во страниц\n" +
+                    "+ кол-во эл-ов в сумме\n",
             description = "В параметрах указать номер страницы"
     )
     @GetMapping("/all/{id}")
-    public Iterable<S> findAll(@PathVariable int id){
-        return mapper.toDtoList(service.findAll(id));
+    public Page<S> findAll(@PathVariable int id){
+        Page<E> page = service.findAll(id);
+        return page.map(mapper::toDto);
     }
 
     @Operation(

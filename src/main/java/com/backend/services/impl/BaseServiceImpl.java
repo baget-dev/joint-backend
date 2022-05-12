@@ -4,6 +4,7 @@ import com.backend.model.BaseEntity;
 import com.backend.repository.LongKeyRepository;
 import com.backend.services.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity,
         R extends LongKeyRepository<E>> implements BaseService<E, R> {
 
     protected final R repo;
-    private int pageSize;
+    private final int pageSize;
 
     @Autowired
     public BaseServiceImpl(R repo, int pageSize) {
@@ -41,7 +42,7 @@ public abstract class BaseServiceImpl<E extends BaseEntity,
     }
 
     @Override
-    public Iterable<E> findAll(int page) {
+    public Page<E> findAll(int page) {
         Pageable firstPage = PageRequest.of(page, pageSize);
         return repo.findAll(firstPage);
     }
